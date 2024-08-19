@@ -2,11 +2,11 @@
     <span class="title">Olá!</span>
     <span class="subtitle">Eu sou o David</span>
     <div class="routers">
-        <span routerLink="/">Início</span>
-        <span routerLink="/about">Sobre mim</span>
-        <span routerLink="/ido">O que faço</span>
-        <span routerLink="/curriculum">Currículo</span>
-        <span>Contato</span>
+        <span (click)="viewMenu = false" routerLink="/">Início</span>
+        <span (click)="viewMenu = false" routerLink="/about">Sobre mim</span>
+        <span (click)="viewMenu = false" routerLink="/ido">O que faço</span>
+        <span (click)="viewMenu = false" routerLink="/curriculum">Currículo</span>
+        <span (click)="viewMenu = false" routerLink="/knowledge">Contato</span>
     </div>
 </div>
 
@@ -17,11 +17,15 @@
         <span class="title">Olá!</span>
         <span class="subtitle">Eu sou o David</span>
         <div class="routers">
-            <span routerLink="/">Início</span>
-            <span routerLink="/about">Sobre mim</span>
-            <span routerLink="/ido">O que faço</span>
-            <span routerLink="/curriculum">Currículo</span>
-            <span>Contato</span>
+            <span (click)="viewMenu = false" routerLink="/">Início</span>
+            <span (click)="viewMenu = false" routerLink="/about">Sobre mim</span>
+            <span (click)="viewMenu = false" routerLink="/ido">O que faço</span>
+            <span (click)="viewMenu = false" routerLink="/curriculum">Currículo</span>
+            <span (click)="viewMenu = false" routerLink="/knowledge">Contato</span>
         </div>
     </div>
 </div>
+
+<mat-icon id="arrow_down" *ngIf="pathSelect == '/about'" routerLink="/ido">keyboard_arrow_down</mat-icon>
+<mat-icon id="arrow_down" *ngIf="pathSelect == '/ido'" routerLink="/curriculum">keyboard_arrow_down</mat-icon>
+<mat-icon id="arrow_down" *ngIf="pathSelect == '/curriculum'" routerLink="/knowledge">keyboard_arrow_down</mat-icon>
