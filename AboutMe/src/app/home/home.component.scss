@@ -1,0 +1,15 @@
+.container{
+    width: calc(100vw - 325px - 40px - 30px);
+    background-color: black;
+    height: 100vh;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    padding: 10px;
+}
+
+@media only screen and (max-width: 950px) {
+    .container{
+        width: calc(100vw - 20px);
+    }
+}

@@ -1,0 +1,27 @@
+<div class="header PC">
+    <span class="title">Olá!</span>
+    <span class="subtitle">Eu sou o David</span>
+    <div class="routers">
+        <span routerLink="/">Início</span>
+        <span routerLink="/about">Sobre mim</span>
+        <span routerLink="/ido">O que faço</span>
+        <span routerLink="/knowledge">Meus conhecimentos</span>
+        <span>Contato</span>
+    </div>
+</div>
+
+<mat-icon class="cellMenu" *ngIf="!viewMenu" (click)="viewMenu = true">menu</mat-icon>
+<mat-icon class="cellMenu" *ngIf="viewMenu" (click)="viewMenu = false">close</mat-icon>
+<div class="Cell" *ngIf="viewMenu">
+    <div class="header">
+        <span class="title">Olá!</span>
+        <span class="subtitle">Eu sou o David</span>
+        <div class="routers">
+            <span routerLink="/">Início</span>
+            <span routerLink="/about">Sobre mim</span>
+            <span routerLink="/ido">O que faço</span>
+            <span routerLink="/knowledge">Meus conhecimentos</span>
+            <span>Contato</span>
+        </div>
+    </div>
+</div>

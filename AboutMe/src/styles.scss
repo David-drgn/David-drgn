@@ -1,0 +1,90 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$AboutMe-primary: mat.define-palette(mat.$indigo-palette);
+$AboutMe-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$AboutMe-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$AboutMe-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $AboutMe-primary,
+      accent: $AboutMe-accent,
+      warn: $AboutMe-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($AboutMe-theme);
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --main-color: #7d7198;
+  --main-color-transparent: #7d719869;
+  --second-color: #b7a0ba;
+  --dark: #071013;
+  --dark-transparent: #07101355;
+  --ligth: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.title {
+  font-size: clamp(30px, 4em, 20px);
+  color: var(--second-color);
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 2rem;
+  color: var(--second-color);
+  font-weight: 500;
+}
+
+a{
+  text-decoration: underline;
+  font-weight: bold;
+  color: var(--second-color);
+}
+
+* {
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@media only screen and (max-width: 950px) {
+  .wrapper_item {
+      width: 90% !important;
+  }
+  .wrapper{
+    flex-wrap: nowrap !important;
+    justify-content: baseline !important;
+    overflow: auto !important;
+    padding-left: 20px !important;
+  }
+}
