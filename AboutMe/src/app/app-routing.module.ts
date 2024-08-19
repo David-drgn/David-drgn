@@ -5,6 +5,7 @@ import { FirstComponent } from './home/first/first.component';
 import { AboutComponent } from './home/about/about.component';
 import { IdoComponent } from './home/ido/ido.component';
 import { KnowledgeComponent } from './home/knowledge/knowledge.component';
+import { CurriculumComponent } from './home/curriculum/curriculum.component';
 
 const routes: Routes = [
   {
@@ -25,8 +26,12 @@ const routes: Routes = [
       },
       {
         path: 'knowledge',
-        component: KnowledgeComponent
-      }
+        component: KnowledgeComponent,
+      },
+      {
+        path: 'curriculum',
+        component: CurriculumComponent,
+      },
     ],
   },
 ];

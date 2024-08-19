@@ -12,9 +12,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { AboutComponent } from './home/about/about.component';
 import { IdoComponent } from './home/ido/ido.component';
 import { KnowledgeComponent } from './home/knowledge/knowledge.component';
+import { CurriculumComponent } from './home/curriculum/curriculum.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent, FirstComponent, AboutComponent, IdoComponent, KnowledgeComponent],
+  declarations: [AppComponent, HomeComponent, HeaderComponent, FirstComponent, AboutComponent, IdoComponent, KnowledgeComponent, CurriculumComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

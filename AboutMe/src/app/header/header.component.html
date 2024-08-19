@@ -5,12 +5,12 @@
         <span routerLink="/">Início</span>
         <span routerLink="/about">Sobre mim</span>
         <span routerLink="/ido">O que faço</span>
-        <span routerLink="/knowledge">Meus conhecimentos</span>
+        <span routerLink="/curriculum">Currículo</span>
         <span>Contato</span>
     </div>
 </div>
 
-<mat-icon class="cellMenu" *ngIf="!viewMenu" (click)="viewMenu = true">menu</mat-icon>
+<mat-icon class="cellMenu" id="menuMatIcon" *ngIf="!viewMenu" (click)="viewMenu = true">menu</mat-icon>
 <mat-icon class="cellMenu" *ngIf="viewMenu" (click)="viewMenu = false">close</mat-icon>
 <div class="Cell" *ngIf="viewMenu">
     <div class="header">
@@ -20,7 +20,7 @@
             <span routerLink="/">Início</span>
             <span routerLink="/about">Sobre mim</span>
             <span routerLink="/ido">O que faço</span>
-            <span routerLink="/knowledge">Meus conhecimentos</span>
+            <span routerLink="/curriculum">Currículo</span>
             <span>Contato</span>
         </div>
     </div>

@@ -20,10 +20,11 @@
   flex-direction: column;
   align-items: baseline;
   align-content: center;
-  justify-content: center;
+  justify-content: center !important;
   gap: 10px;
-  flex-wrap: wrap;
-  padding-left: 30px;
+  flex-wrap: wrap !important;
+  padding-left: 30px !important;
+
   .title {
     color: var(--ligth);
   }
@@ -37,7 +38,7 @@
     cursor: pointer;
     transition: all 1s;
   }
-  button:hover{
+  button:hover {
     // transform: scale(1.2);
     padding-left: 30px;
     padding-right: 30px;

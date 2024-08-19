@@ -47,21 +47,25 @@ $AboutMe-theme: mat.define-light-theme(
 }
 
 .title {
-  font-size: clamp(30px, 4em, 20px);
+  font-size: clamp(30px, 4em, 55px);
   color: var(--second-color);
   font-weight: 600;
 }
 
 .subtitle {
-  font-size: 2rem;
+  font-size: clamp(25px, 4em, 30px);
   color: var(--second-color);
   font-weight: 500;
 }
 
-a{
+a {
   text-decoration: underline;
   font-weight: bold;
   color: var(--second-color);
+}
+
+ul{
+  margin-top: 0px;
 }
 
 * {
@@ -79,12 +83,13 @@ body {
 
 @media only screen and (max-width: 950px) {
   .wrapper_item {
-      width: 90% !important;
+    width: 90% !important;
   }
-  .wrapper{
+  .wrapper {
     flex-wrap: nowrap !important;
-    justify-content: baseline !important;
+    justify-content: flex-start !important;
     overflow: auto !important;
     padding-left: 20px !important;
+    margin-top: 45px;
   }
 }
