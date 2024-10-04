@@ -46,6 +46,7 @@ $AboutMe-theme: mat.define-light-theme((color: (primary: $AboutMe-primary,
   font-size: clamp(30px, 4em, 55px);
   color: var(--second-color);
   font-weight: 600;
+  word-break: break-word;
 }
 
 .subtitle {

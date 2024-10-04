@@ -9,6 +9,7 @@
   position: fixed;
   top: 0px;
   left: 0px;
+
   .title {
     margin-top: 30px;
   }
@@ -53,10 +54,12 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+
   span {
     cursor: pointer;
     transition: all 1s;
   }
+
   span:hover {
     transform: scale(1.3);
   }
@@ -73,5 +76,10 @@
 
   .cellMenu {
     display: block !important;
+  }
+
+  .header {
+    width: calc(100vw - 50px);
+    height: calc(100vh - 50px);
   }
 }

@@ -13,6 +13,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
+  padding: 20px;
   width: 100%;
   display: flex;
   height: calc(100% - 20px);
@@ -56,4 +57,10 @@
   flex-direction: column;
   width: 60%;
   gap: 20px;
+}
+
+@media only screen and (max-width: 950px) {
+  .wrapper {
+    height: calc(100% - 105px) !important;
+  }
 }
