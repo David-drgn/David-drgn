@@ -12,7 +12,10 @@ export class HeaderComponent {
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) this.pathSelect = event.url;
+      if (event instanceof NavigationEnd) {
+        this.pathSelect = event.url;
+        console.log(this.pathSelect);
+      }
     });
   }
 }

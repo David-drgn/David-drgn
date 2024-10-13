@@ -16,8 +16,8 @@
   width: 100%;
   display: flex;
   height: -webkit-fill-available;
-  -webkit-backdrop-filter: blur(5px) brightness(.3);
-  backdrop-filter: blur(5px) brightness(.3);
+  -webkit-backdrop-filter: blur(5px) brightness(0.3);
+  backdrop-filter: blur(5px) brightness(0.3);
   background-color: var(--main-color-transparent);
   flex-direction: column;
   align-items: baseline;
@@ -48,5 +48,12 @@
     // transform: scale(1.2);
     padding-left: 30px;
     padding-right: 30px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .wrapper {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
   }
 }

@@ -2,11 +2,11 @@
     <span class="title">Olá!</span>
     <span class="subtitle">Eu sou o David</span>
     <div class="routers">
-        <span (click)="viewMenu = false" routerLink="/">Início</span>
-        <span (click)="viewMenu = false" routerLink="/about">Sobre mim</span>
-        <span (click)="viewMenu = false" routerLink="/ido">O que faço</span>
-        <span (click)="viewMenu = false" routerLink="/curriculum">Currículo</span>
-        <span (click)="viewMenu = false" routerLink="/knowledge">Contato</span>
+        <span (click)="viewMenu = false" routerLink="/" [ngClass]="{'active': pathSelect == '/'}">Início</span>
+        <span (click)="viewMenu = false" routerLink="/about" [ngClass]="{'active': pathSelect == '/about'}">Sobre mim</span>
+        <span (click)="viewMenu = false" routerLink="/ido" [ngClass]="{'active': pathSelect == '/ido'}">O que faço</span>
+        <span (click)="viewMenu = false" routerLink="/curriculum" [ngClass]="{'active': pathSelect == '/curriculum'}">Currículo</span>
+        <span (click)="viewMenu = false" routerLink="/knowledge" [ngClass]="{'active': pathSelect == '/knowledge'}">Contato</span>
     </div>
 </div>
 
@@ -17,11 +17,11 @@
         <span class="title">Olá!</span>
         <span class="subtitle">Eu sou o David</span>
         <div class="routers">
-            <span (click)="viewMenu = false" routerLink="/">Início</span>
-            <span (click)="viewMenu = false" routerLink="/about">Sobre mim</span>
-            <span (click)="viewMenu = false" routerLink="/ido">O que faço</span>
-            <span (click)="viewMenu = false" routerLink="/curriculum">Currículo</span>
-            <span (click)="viewMenu = false" routerLink="/knowledge">Contato</span>
+            <span (click)="viewMenu = false" routerLink="/" [ngClass]="{'active': pathSelect == '/'}">Início</span>
+            <span (click)="viewMenu = false" routerLink="/about" [ngClass]="{'active': pathSelect == '/about'}">Sobre mim</span>
+            <span (click)="viewMenu = false" routerLink="/ido" [ngClass]="{'active': pathSelect == '/ido'}">O que faço</span>
+            <span (click)="viewMenu = false" routerLink="/curriculum" [ngClass]="{'active': pathSelect == '/curriculum'}">Currículo</span>
+            <span (click)="viewMenu = false" routerLink="/knowledge" [ngClass]="{'active': pathSelect == '/knowledge'}">Contato</span>
         </div>
     </div>
 </div>
