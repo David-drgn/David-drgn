@@ -1,15 +1,23 @@
-.container{
-    width: calc(100vw - 325px - 40px - 30px);
-    background-color: black;
-    height: 100vh;
-    position: fixed;
-    right: 0px;
-    top: 0px;
-    padding: 10px;
+.container {
+  width: calc(100vw - 20px);
+  height: calc(100vh - 70px);
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  padding: 10px;
+}
+
+.back {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 
 @media only screen and (max-width: 950px) {
-    .container{
-        width: calc(100vw - 20px);
-    }
+  .container {
+    width: calc(100vw - 20px);
+    height: calc(100vh - 100px);
+  }
 }

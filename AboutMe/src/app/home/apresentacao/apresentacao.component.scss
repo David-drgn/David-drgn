@@ -2,6 +2,7 @@
   width: 100%;
   height: calc(100% - 20px);
   display: flex;
+  align-items: center;
   overflow: auto;
   margin-top: 60px;
   justify-content: start;
@@ -49,13 +50,9 @@ button:hover {
       width: calc(100% - 40px);
       height: calc(100% - 40px);
     }
-  }
-}
 
-.list {
-  display: flex;
-  flex-wrap: wrap;
-  ul {
-    padding-left: 70px;
+    span {
+      text-align: justify;
+    }
   }
 }

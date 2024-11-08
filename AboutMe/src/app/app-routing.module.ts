@@ -6,6 +6,7 @@ import { AboutComponent } from './home/about/about.component';
 import { IdoComponent } from './home/ido/ido.component';
 import { KnowledgeComponent } from './home/knowledge/knowledge.component';
 import { CurriculumComponent } from './home/curriculum/curriculum.component';
+import { ApresentacaoComponent } from './home/apresentacao/apresentacao.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: FirstComponent,
+        component: ApresentacaoComponent,
       },
       {
         path: 'about',
