@@ -55,5 +55,6 @@
   .wrapper {
     flex-wrap: wrap !important;
     justify-content: center !important;
+    height: calc(100% - 90px);
   }
 }
