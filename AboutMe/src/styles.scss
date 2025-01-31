@@ -63,6 +63,8 @@ a {
   text-decoration: underline;
   font-weight: bold;
   color: var(--second-color);
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 ul {
