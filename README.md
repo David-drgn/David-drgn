@@ -1,5 +1,4 @@
 # Olá, sou o David Neves
-## (˶◡‿◡)
 
 <!-- [![Blog](https://img.shields.io/website)]() -->
 
