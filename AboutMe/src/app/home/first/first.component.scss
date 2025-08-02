@@ -55,6 +55,7 @@
   .wrapper {
     flex-wrap: wrap !important;
     justify-content: center !important;
-    height: calc(100% - 90px);
+    height: 100%;
+    box-sizing: border-box;
   }
 }
