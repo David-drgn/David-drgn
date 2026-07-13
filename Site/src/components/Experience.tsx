@@ -146,8 +146,14 @@ export default function Experience() {
         }
 
         .current-item .timeline-content-card {
-          border-color: rgba(138, 122, 178, 0.25);
-          box-shadow: 0 8px 30px rgba(138, 122, 178, 0.05);
+          border-color: var(--color-primary);
+          box-shadow: 0 8px 30px var(--color-primary-transparent);
+        }
+
+        .timeline-content-card:hover {
+          border-color: var(--color-primary);
+          box-shadow: 0 8px 30px var(--color-primary-transparent);
+          transform: translateY(-2px);
         }
 
         .card-header {

@@ -6,9 +6,23 @@ import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Curriculum from './components/Curriculum';
 import Contact from './components/Contact';
+import Chat from './components/Chat';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
+  const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    if (theme === 'light') {
+      document.body.classList.add('light-mode');
+    } else {
+      document.body.classList.remove('light-mode');
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  };
 
   useEffect(() => {
     const sections = ['home', 'about', 'experience', 'skills', 'curriculum', 'contact'];
@@ -60,7 +74,7 @@ export default function App() {
         <div className="gradient-sphere-2"></div>
       </div>
 
-      <Navbar activeSection={activeSection} />
+      <Navbar activeSection={activeSection} theme={theme} toggleTheme={toggleTheme} />
 
       <main className="main-content">
         <Hero onNavigate={handleNavigate} />
@@ -81,6 +95,8 @@ export default function App() {
           </p>
         </div>
       </footer>
+
+      <Chat />
 
       <style>{`
         .app-wrapper {

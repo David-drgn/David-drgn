@@ -1,11 +1,17 @@
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 interface NavbarProps {
   activeSection: string;
+  theme: string;
+  toggleTheme: () => void;
 }
 
-export default function Navbar({ activeSection }: NavbarProps) {
+export default function Navbar({
+  activeSection,
+  theme,
+  toggleTheme,
+}: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -18,17 +24,17 @@ export default function Navbar({ activeSection }: NavbarProps) {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { id: 'home', label: 'Início' },
-    { id: 'about', label: 'Sobre mim' },
-    { id: 'experience', label: 'Trajetória' },
-    { id: 'skills', label: 'Conhecimentos' },
-    { id: 'curriculum', label: 'Currículo' },
-    { id: 'contact', label: 'Contato' },
+    { id: "home", label: "Início" },
+    { id: "about", label: "Sobre mim" },
+    { id: "experience", label: "Trajetória" },
+    { id: "skills", label: "Conhecimentos" },
+    { id: "curriculum", label: "Currículo" },
+    { id: "contact", label: "Contato" },
   ];
 
   const handleNavClick = (id: string) => {
@@ -43,15 +49,15 @@ export default function Navbar({ activeSection }: NavbarProps) {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   };
 
   return (
-    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <div className="navbar-container">
-        <div className="navbar-logo" onClick={() => handleNavClick('home')}>
+        <div className="navbar-logo" onClick={() => handleNavClick("home")}>
           <span className="font-display text-gradient logo-text">DR</span>
         </div>
 
@@ -61,27 +67,47 @@ export default function Navbar({ activeSection }: NavbarProps) {
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id)}
-              className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+              className={`nav-link ${activeSection === item.id ? "active" : ""}`}
             >
               {item.label}
             </button>
           ))}
+          <button
+            className="theme-toggle-btn"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
         </div>
 
-        {/* Mobile Hamburger Button */}
-        <button className="mobile-menu-btn" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Actions */}
+        <div className="mobile-actions">
+          <button
+            className="theme-toggle-btn mobile-theme"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun size={24} /> : <Moon size={24} />}
+          </button>
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation Drawer */}
-      <div className={`mobile-drawer ${isOpen ? 'open' : ''}`}>
+      <div className={`mobile-drawer ${isOpen ? "open" : ""}`}>
         <div className="mobile-links">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id)}
-              className={`mobile-nav-link ${activeSection === item.id ? 'active' : ''}`}
+              className={`mobile-nav-link ${activeSection === item.id ? "active" : ""}`}
             >
               {item.label}
             </button>
@@ -103,7 +129,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
 
         .navbar.scrolled {
           padding: 16px 24px;
-          background: rgba(8, 11, 17, 0.75);
+          background: rgba(8, 11, 17, 0);
           backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);
           border-bottom: 1px solid var(--border-color);
@@ -150,12 +176,35 @@ export default function Navbar({ activeSection }: NavbarProps) {
         }
 
         .nav-link.active {
-          color: var(--text-primary);
-          background: rgba(255, 255, 255, 0.05);
+          color: var(--color-primary);
+          background: var(--color-primary-transparent);
+        }
+
+        .theme-toggle-btn {
+          background: none;
+          border: none;
+          color: var(--text-secondary);
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 8px;
+          border-radius: 50%;
+          transition: var(--transition-smooth);
+        }
+
+        .theme-toggle-btn:hover {
+          color: var(--color-primary);
+          background: var(--color-primary-transparent);
+        }
+
+        .mobile-actions {
+          display: none;
+          align-items: center;
+          gap: 16px;
         }
 
         .mobile-menu-btn {
-          display: none;
           background: none;
           border: none;
           color: var(--text-primary);
@@ -214,8 +263,8 @@ export default function Navbar({ activeSection }: NavbarProps) {
           .navbar-links {
             display: none;
           }
-          .mobile-menu-btn {
-            display: block;
+          .mobile-actions {
+            display: flex;
           }
         }
       `}</style>

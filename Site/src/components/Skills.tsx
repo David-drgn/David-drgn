@@ -249,9 +249,10 @@ export default function Skills() {
         }
 
         .skill-tag-wrapper:hover {
-          background: rgba(255, 255, 255, 0.04);
-          border-color: var(--color-secondary-transparent);
-          transform: translateX(4px);
+          background: var(--color-primary-transparent);
+          border-color: var(--color-primary);
+          transform: translateX(4px) scale(1.02);
+          box-shadow: 0 4px 12px var(--color-primary-transparent);
         }
 
         .skill-tag {
