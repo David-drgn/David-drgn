@@ -19,7 +19,7 @@ Trabalho há mais de 2 anos com desenvolvimento web. Hoje atuo na **ShiftMC** cr
   <a href="https://www.instagram.com/david_drgn_/" target="_blank">
     <img alt="Instagram" src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
   </a>
-  <a href="./Site/public/CV.pdf" target="_blank">
+  <a href="https://david-drgn.vercel.app/CV.pdf" target="_blank">
     <img alt="Currículo PDF" src="https://img.shields.io/badge/Curr%C3%ADculo_PDF-C97D56?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0xNCAySDZhMiAyIDAgMCAwLTIgMnYxNmEyIDIgMCAwIDAgMiAyaDEyYTIgMiAwIDAgMCAyLTJWOGwtNi02em00IDE4SDZWNGg3djVoNXYxMXpNOCAxMmg4djJIOHYtMnptMCA0aDh2Mkg4di0yem0wLThoM3YySDhWOHoiLz48L3N2Zz4=&logoColor=white" />
   </a>
 </div>
