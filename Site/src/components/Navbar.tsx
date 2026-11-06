@@ -30,9 +30,9 @@ export default function Navbar({
 
   const navItems = [
     { id: "home", label: "Início" },
-    { id: "about", label: "Sobre mim" },
-    { id: "experience", label: "Trajetória" },
-    { id: "skills", label: "Conhecimentos" },
+    { id: "about", label: "Sobre" },
+    { id: "experience", label: "Experiência" },
+    { id: "skills", label: "Stack" },
     { id: "curriculum", label: "Currículo" },
     { id: "contact", label: "Contato" },
   ];
@@ -41,7 +41,7 @@ export default function Navbar({
     setIsOpen(false);
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80; // Offset for sticky header
+      const offset = 80;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -57,9 +57,14 @@ export default function Navbar({
   return (
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <div className="navbar-container">
-        <div className="navbar-logo" onClick={() => handleNavClick("home")}>
-          <span className="font-display text-gradient logo-text">DR</span>
-        </div>
+        <button
+          type="button"
+          className="navbar-logo"
+          onClick={() => handleNavClick("home")}
+        >
+          <span className="logo-name">david.raphael</span>
+          <span className="logo-cursor">_</span>
+        </button>
 
         {/* Desktop Navigation */}
         <div className="navbar-links">
@@ -72,12 +77,14 @@ export default function Navbar({
               {item.label}
             </button>
           ))}
+          <div className="nav-divider" />
           <button
             className="theme-toggle-btn"
             onClick={toggleTheme}
-            aria-label="Toggle theme"
+            aria-label="Alternar tema"
+            title={theme === "dark" ? "Mudar para tema claro suave" : "Mudar para tema escuro suave"}
           >
-            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
           </button>
         </div>
 
@@ -86,14 +93,14 @@ export default function Navbar({
           <button
             className="theme-toggle-btn mobile-theme"
             onClick={toggleTheme}
-            aria-label="Toggle theme"
+            aria-label="Alternar tema"
           >
-            {theme === "dark" ? <Sun size={24} /> : <Moon size={24} />}
+            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
           </button>
           <button
             className="mobile-menu-btn"
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
+            aria-label="Abrir menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -115,7 +122,6 @@ export default function Navbar({
         </div>
       </div>
 
-      {/* Custom Styles for Navbar */}
       <style>{`
         .navbar {
           position: fixed;
@@ -123,21 +129,20 @@ export default function Navbar({
           left: 0;
           width: 100%;
           z-index: 100;
-          padding: 24px;
+          padding: 22px 24px;
           transition: var(--transition-smooth);
         }
 
         .navbar.scrolled {
-          padding: 16px 24px;
-          background: rgba(8, 11, 17, 0);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
+          padding: 14px 24px;
+          background: var(--bg-navbar);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
           border-bottom: 1px solid var(--border-color);
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
 
         .navbar-container {
-          max-width: 1100px;
+          max-width: 1040px;
           margin: 0 auto;
           display: flex;
           justify-content: space-between;
@@ -145,34 +150,59 @@ export default function Navbar({
         }
 
         .navbar-logo {
+          background: none;
+          border: none;
           cursor: pointer;
+          display: inline-flex;
+          align-items: baseline;
+          padding: 0;
         }
 
-        .logo-text {
-          font-size: 24px;
+        .logo-name {
+          font-family: var(--font-display);
+          font-size: 20px;
           font-weight: 700;
-          letter-spacing: 1px;
+          color: var(--text-primary);
+          letter-spacing: -0.03em;
+        }
+
+        .logo-cursor {
+          color: var(--color-primary);
+          font-family: var(--font-mono);
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 1;
+          margin-left: 2px;
         }
 
         .navbar-links {
           display: flex;
-          gap: 28px;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .nav-divider {
+          width: 1px;
+          height: 18px;
+          background: var(--border-color);
+          margin: 0 8px;
         }
 
         .nav-link {
           background: none;
           border: none;
           color: var(--text-secondary);
-          font-size: 15px;
+          font-size: 14px;
           font-weight: 500;
           cursor: pointer;
           transition: var(--transition-smooth);
-          padding: 6px 12px;
-          border-radius: 8px;
+          padding: 7px 12px;
+          border-radius: 6px;
         }
 
         .nav-link:hover {
           color: var(--text-primary);
+          background: var(--surface-subtle);
         }
 
         .nav-link.active {
@@ -181,27 +211,29 @@ export default function Navbar({
         }
 
         .theme-toggle-btn {
-          background: none;
-          border: none;
+          background: var(--surface-subtle);
+          border: 1px solid var(--border-color);
           color: var(--text-secondary);
           cursor: pointer;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 8px;
-          border-radius: 50%;
+          width: 36px;
+          height: 36px;
+          border-radius: 8px;
           transition: var(--transition-smooth);
         }
 
         .theme-toggle-btn:hover {
-          color: var(--color-primary);
-          background: var(--color-primary-transparent);
+          color: var(--text-primary);
+          border-color: var(--border-color-hover);
+          background: var(--surface-subtle-hover);
         }
 
         .mobile-actions {
           display: none;
           align-items: center;
-          gap: 16px;
+          gap: 12px;
         }
 
         .mobile-menu-btn {
@@ -209,18 +241,17 @@ export default function Navbar({
           border: none;
           color: var(--text-primary);
           cursor: pointer;
+          display: flex;
+          align-items: center;
         }
 
-        /* Mobile Drawer */
         .mobile-drawer {
           position: fixed;
           top: 0;
           left: 0;
           width: 100%;
           height: 100vh;
-          background: rgba(8, 11, 17, 0.95);
-          backdrop-filter: blur(16px);
-          -webkit-backdrop-filter: blur(16px);
+          background: var(--bg-primary);
           z-index: 99;
           display: flex;
           align-items: center;
@@ -228,7 +259,7 @@ export default function Navbar({
           opacity: 0;
           pointer-events: none;
           transition: var(--transition-smooth);
-          transform: translateY(-20px);
+          transform: translateY(-12px);
         }
 
         .mobile-drawer.open {
@@ -241,22 +272,24 @@ export default function Navbar({
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 32px;
+          gap: 24px;
         }
 
         .mobile-nav-link {
           background: none;
           border: none;
           color: var(--text-secondary);
-          font-size: 22px;
-          font-weight: 600;
+          font-family: var(--font-display);
+          font-size: 24px;
+          font-weight: 700;
+          letter-spacing: -0.02em;
           cursor: pointer;
           transition: var(--transition-smooth);
         }
 
-        .mobile-nav-link:hover, .mobile-nav-link.active {
-          color: var(--color-secondary);
-          transform: scale(1.1);
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+          color: var(--color-primary);
         }
 
         @media (max-width: 768px) {

@@ -1,44 +1,61 @@
-import { Download, Eye } from 'lucide-react';
+import { Download, ExternalLink, FileText } from 'lucide-react';
 
 export default function Curriculum() {
   return (
     <section id="curriculum" className="curriculum-section section-padding">
       <div className="container-width">
-        <h2 className="section-title font-display text-gradient">Currículo</h2>
-        <p className="section-desc">Visualize ou faça o download da versão em PDF completa do meu currículo.</p>
+        <div className="section-header">
+          <span className="section-kicker">04 / currículo</span>
+          <h2 className="section-title font-display">Versão em documento</h2>
+          <p className="section-desc">
+            Se preferir guardar ou imprimir, você pode consultar a versão completa em PDF abaixo.
+          </p>
+        </div>
 
         <div className="curriculum-container">
-          {/* Action Header */}
           <div className="curriculum-actions-bar glass-card">
             <div className="bar-info">
-              <h3>David_Raphael_CV.pdf</h3>
-              <span>Tamanho: ~550 KB • Atualizado recentemente</span>
+              <div className="file-icon">
+                <FileText size={20} />
+              </div>
+              <div>
+                <h3>David_Raphael_CV.pdf</h3>
+                <span className="font-mono">PDF • Currículo completo</span>
+              </div>
             </div>
             <div className="bar-buttons">
-              <a href="/CV.pdf" download="David_Raphael_CV.pdf" className="btn-download">
-                <Download size={18} /> Baixar PDF
+              <a
+                href="/CV.pdf"
+                download="David_Raphael_CV.pdf"
+                className="btn-download"
+              >
+                <Download size={16} /> Baixar PDF
               </a>
-              <a href="/CV.pdf" target="_blank" rel="noopener noreferrer" className="btn-view">
-                <Eye size={18} /> Abrir em Nova Guia
+              <a
+                href="/CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-view"
+              >
+                <ExternalLink size={16} /> Abrir em nova guia
               </a>
             </div>
           </div>
 
-          {/* PDF Preview Frame (Desktop only for better UX) */}
           <div className="curriculum-preview glass-card">
-            <iframe 
-              src="/CV.pdf#toolbar=0" 
+            <iframe
+              src="/CV.pdf#toolbar=0"
               title="Currículo de David Raphael"
-              width="100%" 
-              height="600px" 
-              frameBorder="0"
+              width="100%"
+              height="580px"
             />
-            {/* Fallback visual for devices/browsers that don't render pdfs */}
             <div className="mobile-fallback">
               <div className="fallback-card">
-                <div className="doc-icon">📄</div>
-                <h4>Visualização indisponível em telas pequenas</h4>
-                <p>Para ler o currículo completo com formatação, utilize os botões acima para baixar o arquivo ou visualizá-lo em uma nova guia.</p>
+                <FileText size={32} className="fallback-icon" />
+                <h4>Visualização melhor em tela cheia</h4>
+                <p>
+                  Em celulares, abra o PDF em uma nova guia ou faça o download nos botões acima para ler com conforto.
+                </p>
               </div>
             </div>
           </div>
@@ -48,14 +65,13 @@ export default function Curriculum() {
       <style>{`
         .curriculum-section {
           position: relative;
+          border-top: 1px solid var(--border-color);
         }
 
         .curriculum-container {
-          max-width: 900px;
-          margin: 0 auto;
           display: flex;
           flex-direction: column;
-          gap: 20px;
+          gap: 16px;
         }
 
         .curriculum-actions-bar {
@@ -67,31 +83,49 @@ export default function Curriculum() {
           gap: 16px;
         }
 
+        .bar-info {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+        }
+
+        .file-icon {
+          width: 42px;
+          height: 42px;
+          border-radius: 8px;
+          background: var(--color-primary-transparent);
+          color: var(--color-primary);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
         .bar-info h3 {
-          font-size: 17px;
+          font-size: 15.5px;
           font-weight: 600;
           color: var(--text-primary);
-          margin-bottom: 4px;
+          margin-bottom: 2px;
         }
 
         .bar-info span {
-          font-size: 13px;
-          color: var(--text-secondary);
+          font-size: 12px;
+          color: var(--text-muted);
         }
 
         .bar-buttons {
           display: flex;
-          gap: 12px;
+          gap: 10px;
         }
 
         .btn-download {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          background: linear-gradient(135deg, var(--color-primary) 0%, #685a85 100%);
-          border: none;
-          color: white;
-          padding: 10px 20px;
+          background: var(--color-primary);
+          border: 1px solid var(--color-primary);
+          color: var(--text-on-accent);
+          padding: 10px 18px;
           border-radius: 8px;
           font-size: 14px;
           font-weight: 600;
@@ -101,40 +135,44 @@ export default function Curriculum() {
         }
 
         .btn-download:hover {
-          transform: translateY(-1px);
-          box-shadow: 0 4px 12px rgba(138, 122, 178, 0.2);
+          background: var(--color-primary-light);
+          border-color: var(--color-primary-light);
         }
 
         .btn-view {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          background: rgba(255, 255, 255, 0.04);
+          background: var(--surface-subtle);
           border: 1px solid var(--border-color);
           color: var(--text-primary);
-          padding: 10px 20px;
+          padding: 10px 18px;
           border-radius: 8px;
           font-size: 14px;
-          font-weight: 600;
+          font-weight: 500;
           cursor: pointer;
           text-decoration: none;
           transition: var(--transition-smooth);
         }
 
         .btn-view:hover {
-          background: rgba(255, 255, 255, 0.08);
+          background: var(--surface-subtle-hover);
           border-color: var(--border-color-hover);
         }
 
         .curriculum-preview {
           position: relative;
           overflow: hidden;
-          padding: 8px;
+          padding: 10px;
+          background: var(--bg-secondary);
         }
 
         .curriculum-preview iframe {
-          border-radius: 12px;
-          background: #ffffff;
+          border: none;
+          border-radius: 8px;
+          background: #eae5db;
+          filter: sepia(0.08) brightness(0.93) contrast(0.97);
+          display: block;
         }
 
         .mobile-fallback {
@@ -144,8 +182,7 @@ export default function Curriculum() {
         @media (max-width: 768px) {
           .curriculum-actions-bar {
             flex-direction: column;
-            text-align: center;
-            align-items: center;
+            align-items: stretch;
           }
 
           .bar-buttons {
@@ -153,7 +190,8 @@ export default function Curriculum() {
             flex-direction: column;
           }
 
-          .btn-download, .btn-view {
+          .btn-download,
+          .btn-view {
             justify-content: center;
             width: 100%;
           }
@@ -166,7 +204,7 @@ export default function Curriculum() {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
+            padding: 36px 20px;
             text-align: center;
           }
 
@@ -174,25 +212,25 @@ export default function Curriculum() {
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 400px;
+            max-width: 360px;
           }
 
-          .doc-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
+          .fallback-icon {
+            color: var(--color-primary);
+            margin-bottom: 12px;
           }
 
           .fallback-card h4 {
             font-size: 16px;
             font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
           }
 
           .fallback-card p {
             font-size: 14px;
             color: var(--text-secondary);
-            line-height: 1.5;
+            line-height: 1.55;
           }
         }
       `}</style>

@@ -21,14 +21,14 @@ export default function App() {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
 
   useEffect(() => {
     const sections = ['home', 'about', 'experience', 'skills', 'curriculum', 'contact'];
-    
+
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 160; // Offset for navbar height
+      const scrollPosition = window.scrollY + 160;
 
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
@@ -44,9 +44,8 @@ export default function App() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    // Call once to set initial active section
     handleScroll();
-    
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -61,14 +60,13 @@ export default function App() {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   };
 
   return (
     <div className="app-wrapper">
-      {/* Background Graphic Blobs */}
       <div className="gradient-bg">
         <div className="gradient-sphere-1"></div>
         <div className="gradient-sphere-2"></div>
@@ -85,13 +83,13 @@ export default function App() {
         <Contact />
       </main>
 
-      <footer className="footer glass-card">
+      <footer className="footer">
         <div className="container-width footer-container">
           <p className="copyright">
-            © {new Date().getFullYear()} David Raphael Gustavo Neves. Todos os direitos reservados.
+            © {new Date().getFullYear()} David Raphael Gustavo Neves
           </p>
-          <p className="credit">
-            Desenvolvido em React + Vite • Hospedado no Vercel
+          <p className="credit font-mono">
+            Santo André, SP • Feito com React & TypeScript
           </p>
         </div>
       </footer>
@@ -111,13 +109,10 @@ export default function App() {
         }
 
         .footer {
-          margin-top: 60px;
-          border-radius: 0 !important;
-          border-left: none !important;
-          border-right: none !important;
-          border-bottom: none !important;
-          background: rgba(8, 11, 17, 0.8) !important;
-          padding: 24px 0;
+          margin-top: 40px;
+          border-top: 1px solid var(--border-color);
+          background: var(--bg-secondary);
+          padding: 28px 0;
         }
 
         .footer-container {
@@ -135,7 +130,7 @@ export default function App() {
         }
 
         .credit {
-          font-size: 13px;
+          font-size: 12.5px;
           color: var(--text-muted);
         }
 

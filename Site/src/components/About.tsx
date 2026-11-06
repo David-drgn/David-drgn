@@ -1,67 +1,72 @@
-import { GraduationCap, Award, Code, Heart } from 'lucide-react';
+import { GraduationCap, Award } from 'lucide-react';
 
 export default function About() {
   return (
     <section id="about" className="about-section section-padding">
       <div className="container-width">
-        <h2 className="section-title font-display text-gradient">Sobre Mim</h2>
-        
+        <div className="section-header">
+          <span className="section-kicker">01 / sobre mim</span>
+          <h2 className="section-title font-display">Um pouco da minha caminhada</h2>
+        </div>
+
         <div className="about-grid">
-          <div className="about-info">
-            <h3 className="about-heading">Minha História</h3>
-            <p className="about-text">
-              Minha jornada na tecnologia começou na ETEC, onde tive meu primeiro contato com programação. O que começou como uma disciplina logo se tornou um <strong>hobby e uma paixão</strong>: criar sites, sistemas e desvendar problemas por meio do código.
+          <div className="about-prose">
+            <p>
+              Meu primeiro contato real com programação foi em 2020, quando entrei
+              no ensino médio técnico em Desenvolvimento de Sistemas na{' '}
+              <strong>ETEC Jorge Street</strong>. Foi ali que descobri o gosto por
+              construir projetos do zero — entender como uma tela conversa com o
+              back-end, estruturar bancos de dados e ver uma ideia funcionando de
+              verdade.
             </p>
-            <p className="about-text">
-              Com o tempo, busquei aprimorar meus conhecimentos teóricos e práticos ingressando no ensino superior. Ao longo dessa trajetória de estudos e projetos, acumulei 2 anos de experiência prática como desenvolvedor full stack, lidando com desafios de ponta a ponta.
+            <p>
+              Para aprofundar essa base, segui para a graduação em Análise e
+              Desenvolvimento de Sistemas na{' '}
+              <strong>FATEC São Caetano do Sul</strong>. Durante a faculdade e o
+              técnico, participei ativamente de maratonas de programação,
+              hackathons e mostras científicas, onde conquistei medalhas e
+              apresentei projetos práticos.
             </p>
-
-            <div className="education-timeline">
-              <h3 className="about-heading" style={{ marginTop: '32px' }}>Formação Acadêmica</h3>
-              
-              <div className="education-card glass-card">
-                <GraduationCap className="edu-icon" size={24} />
-                <div className="edu-details">
-                  <span className="edu-period">2023 - 2024</span>
-                  <h4>Tecnólogo em Análise e Desenvolvimento de Sistemas</h4>
-                  <p className="edu-school">FATEC São Caetano do Sul - Antonio Russo</p>
-                </div>
-              </div>
-
-              <div className="education-card glass-card">
-                <GraduationCap className="edu-icon" size={24} />
-                <div className="edu-details">
-                  <span className="edu-period">2020 - 2022</span>
-                  <h4>Ensino Médio Técnico em Desenvolvimento de Sistemas</h4>
-                  <p className="edu-school">ETEC Jorge Street</p>
-                </div>
-              </div>
-            </div>
+            <p>
+              Nos últimos 2 anos venho atuando profissionalmente como desenvolvedor
+              Full Stack. Gosto de escrever código legível, construir interfaces
+              diretas sem complicação desnecessária e resolver problemas reais
+              junto com a equipe.
+            </p>
           </div>
 
-          <div className="about-cards">
-            <div className="stat-card glass-card">
-              <div className="stat-icon-wrapper purple">
-                <Code size={24} />
-              </div>
-              <h3>2+ Anos</h3>
-              <p>De experiência prática em desenvolvimento full stack</p>
-            </div>
+          <div className="about-education">
+            <h3 className="column-subtitle">Formação & Destaques</h3>
 
-            <div className="stat-card glass-card">
-              <div className="stat-icon-wrapper blue">
-                <Award size={24} />
+            <div className="edu-list">
+              <div className="edu-item glass-card">
+                <div className="edu-meta">
+                  <span className="font-mono edu-period">2023 — 2024</span>
+                  <GraduationCap size={17} className="edu-icon" />
+                </div>
+                <h4>Tecnólogo em Análise e Desenvolvimento de Sistemas</h4>
+                <p className="edu-school">FATEC São Caetano do Sul – Antonio Russo</p>
               </div>
-              <h3>Medalhista</h3>
-              <p>Conquistas em eventos científicos e maratonas de programação</p>
-            </div>
 
-            <div className="stat-card glass-card">
-              <div className="stat-icon-wrapper teal">
-                <Heart size={24} />
+              <div className="edu-item glass-card">
+                <div className="edu-meta">
+                  <span className="font-mono edu-period">2020 — 2022</span>
+                  <GraduationCap size={17} className="edu-icon" />
+                </div>
+                <h4>Técnico em Desenvolvimento de Sistemas</h4>
+                <p className="edu-school">ETEC Jorge Street (Ensino Médio Integrado)</p>
               </div>
-              <h3>Hobby & Foco</h3>
-              <p>Apaixonado por criar soluções web modernas e eficientes</p>
+
+              <div className="edu-item glass-card">
+                <div className="edu-meta">
+                  <span className="font-mono edu-period">Conquistas</span>
+                  <Award size={17} className="edu-icon award" />
+                </div>
+                <h4>Maratonas de Programação & Eventos Científicos</h4>
+                <p className="edu-school">
+                  Premiações e medalhas em hackathons, maratonas acadêmicas, mostra Excute e TCC.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -70,154 +75,91 @@ export default function About() {
       <style>{`
         .about-section {
           position: relative;
-        }
-
-        .section-title {
-          font-size: clamp(32px, 5vw, 44px);
-          font-weight: 700;
-          margin-bottom: 48px;
-          text-align: center;
+          border-top: 1px solid var(--border-color);
         }
 
         .about-grid {
           display: grid;
-          grid-template-columns: 1.2fr 0.8fr;
-          gap: 60px;
+          grid-template-columns: 1.15fr 0.85fr;
+          gap: 56px;
           align-items: start;
         }
 
-        .about-info {
+        .about-prose {
           display: flex;
           flex-direction: column;
+          gap: 18px;
         }
 
-        .about-heading {
-          font-size: 22px;
-          font-weight: 600;
-          color: var(--text-primary);
-          margin-bottom: 16px;
-        }
-
-        .about-text {
+        .about-prose p {
           font-size: 16.5px;
           color: var(--text-secondary);
-          line-height: 1.7;
-          margin-bottom: 16px;
+          line-height: 1.75;
         }
 
-        .about-text strong {
-          color: var(--color-secondary);
+        .about-prose strong {
+          color: var(--text-primary);
           font-weight: 600;
         }
 
-        .education-timeline {
+        .column-subtitle {
+          font-family: var(--font-mono);
+          font-size: 13px;
+          font-weight: 500;
+          color: var(--text-muted);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          margin-bottom: 16px;
+        }
+
+        .edu-list {
           display: flex;
           flex-direction: column;
-          gap: 16px;
+          gap: 14px;
         }
 
-        .education-card {
+        .edu-item {
+          padding: 20px 22px;
+        }
+
+        .edu-meta {
           display: flex;
-          gap: 20px;
-          padding: 20px;
-          align-items: flex-start;
-        }
-
-        .education-card:hover {
-          transform: translateX(4px) !important;
-        }
-
-        .edu-icon {
-          color: var(--color-primary-light);
-          flex-shrink: 0;
-          margin-top: 2px;
-        }
-
-        .edu-details {
-          display: flex;
-          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 8px;
         }
 
         .edu-period {
-          font-size: 13px;
-          font-weight: 600;
-          color: var(--color-secondary);
-          margin-bottom: 4px;
+          font-size: 12px;
+          color: var(--color-primary);
         }
 
-        .edu-details h4 {
-          font-size: 16px;
+        .edu-icon {
+          color: var(--text-muted);
+        }
+
+        .edu-icon.award {
+          color: var(--color-secondary);
+        }
+
+        .edu-item h4 {
+          font-size: 15.5px;
           font-weight: 600;
           color: var(--text-primary);
           margin-bottom: 4px;
+          line-height: 1.4;
         }
 
         .edu-school {
-          font-size: 14.5px;
-          color: var(--text-secondary);
-        }
-
-        .about-cards {
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-        }
-
-        .stat-card {
-          padding: 24px;
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-          align-items: center;
-          text-align: center;
-        }
-
-        .stat-icon-wrapper {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 52px;
-          height: 52px;
-          border-radius: 12px;
-        }
-
-        .stat-icon-wrapper.purple {
-          background: rgba(138, 122, 178, 0.1);
-          color: var(--color-primary-light);
-        }
-
-        .stat-icon-wrapper.blue {
-          background: rgba(0, 229, 255, 0.1);
-          color: var(--color-secondary);
-        }
-
-        .stat-icon-wrapper.teal {
-          background: rgba(138, 122, 178, 0.1);
-          color: var(--color-primary-light);
-        }
-
-        .stat-card h3 {
-          font-size: 20px;
-          font-weight: 700;
-          color: var(--text-primary);
-        }
-
-        .stat-card p {
           font-size: 14px;
           color: var(--text-secondary);
           line-height: 1.5;
         }
 
-        @media (max-width: 950px) {
+        @media (max-width: 900px) {
           .about-grid {
             grid-template-columns: 1fr;
             gap: 40px;
-          }
-
-          .about-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 16px;
           }
         }
       `}</style>

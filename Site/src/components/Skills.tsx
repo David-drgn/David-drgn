@@ -1,388 +1,335 @@
-import { useState } from 'react';
-import { Shield, Sparkles, Languages, CheckCircle2 } from 'lucide-react';
-
 export default function Skills() {
-  const [activeTab, setActiveTab] = useState<'tech' | 'soft'>('tech');
+  const stackGroups = [
+    {
+      title: 'Front-end',
+      note: 'Interfaces responsivas, componentização e consumo de APIs.',
+      items: [
+        { name: 'Angular', core: true },
+        { name: 'React', core: true },
+        { name: 'TypeScript', core: true },
+        { name: 'JavaScript', core: true },
+        { name: 'HTML5 & CSS3 / SCSS', core: true },
+        { name: 'Bootstrap', core: false },
+        { name: 'Flutter', core: false },
+      ],
+    },
+    {
+      title: 'Back-end',
+      note: 'Regras de negócio, autenticação, microsserviços e integrações.',
+      items: [
+        { name: 'C#', core: true },
+        { name: '.NET', core: true },
+        { name: 'Node.js', core: true },
+        { name: 'Express', core: true },
+        { name: 'REST APIs', core: true },
+        { name: 'Java', core: false },
+        { name: 'PHP', core: false },
+      ],
+    },
+    {
+      title: 'Bancos de Dados',
+      note: 'Modelagem relacional, consultas otimizadas e integridade de dados.',
+      items: [
+        { name: 'PostgreSQL', core: true },
+        { name: 'MySQL', core: true },
+        { name: 'SQL Server', core: true },
+        { name: 'Modelagem SQL', core: false },
+      ],
+    },
+    {
+      title: 'Ecossistema & Ferramentas',
+      note: 'Versionamento, CRM corporativo, análise de dados e ambiente.',
+      items: [
+        { name: 'Git & GitHub', core: true },
+        { name: 'Dynamics CRM', core: true },
+        { name: 'Power BI', core: false },
+        { name: 'Power Apps', core: false },
+        { name: 'VS Code & Visual Studio', core: false },
+        { name: 'Linux', core: false },
+      ],
+    },
+  ];
 
-  const techSkills = {
-    frontend: [
-      { name: 'React', level: 'Intermediário' },
-      { name: 'Angular', level: 'Avançado' },
-      { name: 'TypeScript', level: 'Avançado' },
-      { name: 'JavaScript', level: 'Avançado' },
-      { name: 'HTML5', level: 'Avançado' },
-      { name: 'CSS3 / SCSS', level: 'Avançado' },
-      { name: 'Bootstrap', level: 'Avançado' },
-      { name: 'Flutter', level: 'Intermediário' },
-    ],
-    backend: [
-      { name: 'C#', level: 'Avançado' },
-      { name: '.NET', level: 'Avançado' },
-      { name: 'Node.js', level: 'Avançado' },
-      { name: 'Express', level: 'Avançado' },
-      { name: 'Java', level: 'Intermediário' },
-      { name: 'PHP', level: 'Intermediário' },
-      { name: 'REST APIs', level: 'Avançado' },
-    ],
-    databases: [
-      { name: 'PostgreSQL', level: 'Avançado' },
-      { name: 'MySQL', level: 'Avançado' },
-      { name: 'SQL Server', level: 'Intermediário' },
-      { name: 'SGBD', level: 'Avançado' },
-    ],
-    tools: [
-      { name: 'Git / GitHub', level: 'Avançado' },
-      { name: 'Dynamics CRM', level: 'Intermediário' },
-      { name: 'Power BI', level: 'Intermediário' },
-      { name: 'Power Apps', level: 'Intermediário' },
-      { name: 'VS Code', level: 'Avançado' },
-      { name: 'Visual Studio', level: 'Avançado' },
-      { name: 'Linux', level: 'Intermediário' },
-    ]
-  };
-
-  const softSkills = [
-    'Trabalho em equipe e colaboração focada em metas',
-    'Excelente comunicação e facilidade na troca de ideias',
-    'Adaptabilidade ágil para lidar com novos ambientes de trabalho',
-    'Raciocínio analítico afiado para resolver problemas complexos',
-    'Proatividade constante na busca por melhorias e novas soluções',
-    'Organização eficiente do tempo e priorização de tarefas',
-    'Conhecimento sólido em metodologias ágeis (Scrum/Kanban)',
-    'Resiliência e capacidade de trabalhar sob prazos apertados',
-    'Compromisso inabalável com a qualidade nas entregas',
-    'Forte determinação em aprender novas tecnologias'
+  const workHabits = [
+    {
+      title: 'Rotina em equipe & Ágil',
+      desc: 'Vivência prática com Scrum e Kanban, alinhando entregas e prioridades junto ao time.',
+    },
+    {
+      title: 'Comunicação direta',
+      desc: 'Facilidade para traduzir necessidades de negócio em tarefas técnicas claras.',
+    },
+    {
+      title: 'Autonomia para investigar',
+      desc: 'Costume de ir a fundo em bugs, documentação e regras de dados até achar a causa raiz.',
+    },
+    {
+      title: 'Adaptabilidade',
+      desc: 'Facilidade para transitar entre front-end, back-end e integrações conforme o projeto pede.',
+    },
   ];
 
   return (
     <section id="skills" className="skills-section section-padding">
       <div className="container-width">
-        <h2 className="section-title font-display text-gradient">Conhecimentos</h2>
-        <p className="section-desc">Minhas competências técnicas, metodologias de trabalho e domínio de idiomas.</p>
-
-        {/* Tab Toggle Buttons */}
-        <div className="tab-container">
-          <button
-            onClick={() => setActiveTab('tech')}
-            className={`tab-btn ${activeTab === 'tech' ? 'active' : ''}`}
-          >
-            <Shield size={16} /> Habilidades Técnicas
-          </button>
-          <button
-            onClick={() => setActiveTab('soft')}
-            className={`tab-btn ${activeTab === 'soft' ? 'active' : ''}`}
-          >
-            <Sparkles size={16} /> Habilidades Pessoais
-          </button>
+        <div className="section-header">
+          <span className="section-kicker">03 / stack & ferramentas</span>
+          <h2 className="section-title font-display">Com o que eu trabalho</h2>
+          <p className="section-desc">
+            Tecnologias que uso no dia a dia para construir sistemas web e ferramentas com as quais tenho experiência prática.
+          </p>
         </div>
 
-        {activeTab === 'tech' ? (
-          <div className="tech-grid">
-            <div className="skill-category-card glass-card">
-              <h3>Front-end</h3>
-              <div className="skills-list">
-                {techSkills.frontend.map((skill) => (
-                  <div key={skill.name} className="skill-tag-wrapper">
-                    <span className="skill-tag">{skill.name}</span>
-                    <span className="skill-level">{skill.level}</span>
-                  </div>
+        <div className="tech-grid">
+          {stackGroups.map((group) => (
+            <div key={group.title} className="skill-card glass-card">
+              <div className="skill-card-head">
+                <h3>{group.title}</h3>
+                <p>{group.note}</p>
+              </div>
+
+              <div className="skill-pills">
+                {group.items.map((item) => (
+                  <span
+                    key={item.name}
+                    className={`skill-pill ${item.core ? 'core' : ''}`}
+                  >
+                    {item.core && <span className="core-dot" />}
+                    {item.name}
+                  </span>
                 ))}
               </div>
             </div>
+          ))}
+        </div>
 
-            <div className="skill-category-card glass-card">
-              <h3>Back-end</h3>
-              <div className="skills-list">
-                {techSkills.backend.map((skill) => (
-                  <div key={skill.name} className="skill-tag-wrapper">
-                    <span className="skill-tag">{skill.name}</span>
-                    <span className="skill-level">{skill.level}</span>
-                  </div>
-                ))}
-              </div>
+        <div className="skills-legend">
+          <span className="legend-item">
+            <span className="core-dot" /> Uso frequente / principal
+          </span>
+        </div>
+
+        <div className="work-and-lang-grid">
+          <div className="work-card glass-card">
+            <h3 className="subcard-title">Jeito de trabalhar</h3>
+            <div className="habits-grid">
+              {workHabits.map((habit) => (
+                <div key={habit.title} className="habit-item">
+                  <h4>{habit.title}</h4>
+                  <p>{habit.desc}</p>
+                </div>
+              ))}
             </div>
+          </div>
 
-            <div className="skill-category-card glass-card">
-              <h3>Bancos de Dados</h3>
-              <div className="skills-list">
-                {techSkills.databases.map((skill) => (
-                  <div key={skill.name} className="skill-tag-wrapper">
-                    <span className="skill-tag">{skill.name}</span>
-                    <span className="skill-level">{skill.level}</span>
-                  </div>
-                ))}
+          <div className="lang-card glass-card">
+            <h3 className="subcard-title">Idiomas</h3>
+            <div className="lang-list">
+              <div className="lang-row">
+                <div className="lang-top">
+                  <span className="lang-name">Português</span>
+                  <span className="font-mono lang-badge">Nativo</span>
+                </div>
               </div>
-            </div>
 
-            <div className="skill-category-card glass-card">
-              <h3>Ferramentas & Outros</h3>
-              <div className="skills-list">
-                {techSkills.tools.map((skill) => (
-                  <div key={skill.name} className="skill-tag-wrapper">
-                    <span className="skill-tag">{skill.name}</span>
-                    <span className="skill-level">{skill.level}</span>
-                  </div>
-                ))}
+              <div className="lang-row">
+                <div className="lang-top">
+                  <span className="lang-name">Inglês</span>
+                  <span className="font-mono lang-badge secondary">Intermediário</span>
+                </div>
+                <p className="lang-note">
+                  Leitura fluente de documentações técnicas, resolução de problemas e comunicação no ambiente de desenvolvimento.
+                </p>
               </div>
             </div>
           </div>
-        ) : (
-          <div className="soft-languages-container">
-            <div className="soft-skills-card glass-card">
-              <h3>Como eu trabalho (Soft Skills)</h3>
-              <div className="soft-skills-grid">
-                {softSkills.map((skill, index) => (
-                  <div key={index} className="soft-skill-item">
-                    <CheckCircle2 className="check-icon" size={18} />
-                    <span>{skill}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="languages-card glass-card">
-              <div className="lang-header">
-                <Languages className="lang-icon" size={24} />
-                <h3>Idiomas</h3>
-              </div>
-              <div className="lang-body">
-                <div className="lang-item">
-                  <div className="lang-info">
-                    <span className="lang-name">Português</span>
-                    <span className="lang-level">Nativo</span>
-                  </div>
-                  <div className="progress-track">
-                    <div className="progress-bar native" style={{ width: '100%' }}></div>
-                  </div>
-                </div>
-
-                <div className="lang-item">
-                  <div className="lang-info">
-                    <span className="lang-name">Inglês</span>
-                    <span className="lang-level">Intermediário</span>
-                  </div>
-                  <div className="progress-track">
-                    <div className="progress-bar intermediate" style={{ width: '60%' }}></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        </div>
       </div>
 
       <style>{`
         .skills-section {
           position: relative;
+          border-top: 1px solid var(--border-color);
         }
 
-        .tab-container {
-          display: flex;
-          justify-content: center;
-          gap: 16px;
-          margin-bottom: 40px;
-        }
-
-        .tab-btn {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid var(--border-color);
-          color: var(--text-secondary);
-          padding: 12px 24px;
-          border-radius: 12px;
-          font-size: 16px;
-          font-weight: 600;
-          cursor: pointer;
-          transition: var(--transition-smooth);
-        }
-
-        .tab-btn:hover {
-          color: var(--text-primary);
-          background: rgba(255, 255, 255, 0.06);
-          border-color: var(--border-color-hover);
-        }
-
-        .tab-btn.active {
-          color: white;
-          background: var(--color-primary);
-          border-color: var(--color-primary);
-          box-shadow: 0 4px 15px rgba(138, 122, 178, 0.3);
-        }
-
-        /* Tech Grid */
         .tech-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-          gap: 24px;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
         }
 
-        .skill-category-card {
-          padding: 24px;
-        }
-
-        .skill-category-card h3 {
-          font-size: 18px;
-          font-weight: 600;
-          margin-bottom: 20px;
-          color: var(--color-primary-light);
-          border-bottom: 1px solid var(--border-color);
-          padding-bottom: 10px;
-        }
-
-        .skills-list {
+        .skill-card {
+          padding: 28px;
           display: flex;
           flex-direction: column;
-          gap: 12px;
-        }
-
-        .skill-tag-wrapper {
-          display: flex;
           justify-content: space-between;
-          align-items: center;
-          background: rgba(255, 255, 255, 0.02);
-          border: 1px solid var(--border-color);
-          padding: 8px 12px;
-          border-radius: 8px;
-          transition: var(--transition-smooth);
+          gap: 22px;
         }
 
-        .skill-tag-wrapper:hover {
-          background: var(--color-primary-transparent);
-          border-color: var(--color-primary);
-          transform: translateX(4px) scale(1.02);
-          box-shadow: 0 4px 12px var(--color-primary-transparent);
-        }
-
-        .skill-tag {
-          font-size: 14.5px;
-          font-weight: 500;
+        .skill-card-head h3 {
+          font-size: 19px;
+          font-weight: 600;
           color: var(--text-primary);
+          margin-bottom: 6px;
         }
 
-        .skill-level {
-          font-size: 11px;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          color: var(--color-secondary);
-          background: rgba(0, 229, 255, 0.05);
-          padding: 2px 6px;
-          border-radius: 4px;
-        }
-
-        /* Soft Skills & Languages */
-        .soft-languages-container {
-          display: grid;
-          grid-template-columns: 1.3fr 0.7fr;
-          gap: 32px;
-          align-items: start;
-        }
-
-        .soft-skills-card {
-          padding: 32px;
-        }
-
-        .soft-skills-card h3 {
-          font-size: 18px;
-          font-weight: 600;
-          margin-bottom: 24px;
-          color: var(--color-primary-light);
-        }
-
-        .soft-skills-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 16px;
-        }
-
-        .soft-skill-item {
-          display: flex;
-          gap: 12px;
-          align-items: flex-start;
-          font-size: 15px;
+        .skill-card-head p {
+          font-size: 14px;
           color: var(--text-secondary);
           line-height: 1.5;
         }
 
-        .check-icon {
-          color: var(--color-secondary);
-          flex-shrink: 0;
-          margin-top: 2px;
-        }
-
-        .languages-card {
-          padding: 32px;
-        }
-
-        .lang-header {
+        .skill-pills {
           display: flex;
-          align-items: center;
-          gap: 12px;
-          margin-bottom: 24px;
-        }
-
-        .lang-icon {
-          color: var(--color-secondary);
-        }
-
-        .lang-header h3 {
-          font-size: 18px;
-          font-weight: 600;
-        }
-
-        .lang-body {
-          display: flex;
-          flex-direction: column;
-          gap: 24px;
-        }
-
-        .lang-item {
-          display: flex;
-          flex-direction: column;
+          flex-wrap: wrap;
           gap: 8px;
         }
 
-        .lang-info {
-          display: flex;
-          justify-content: space-between;
-          font-size: 15px;
+        .skill-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          font-size: 13.5px;
+          font-weight: 500;
+          color: var(--text-secondary);
+          background: var(--surface-subtle);
+          border: 1px solid var(--border-color);
+          padding: 6px 12px;
+          border-radius: 6px;
+          transition: var(--transition-smooth);
         }
 
-        .lang-name {
-          font-weight: 500;
+        .skill-pill.core {
+          color: var(--text-primary);
+          background: var(--bg-secondary);
+          border-color: var(--border-color-hover);
+        }
+
+        .skill-pill:hover {
+          border-color: var(--color-primary);
           color: var(--text-primary);
         }
 
-        .lang-level {
-          color: var(--text-secondary);
-        }
-
-        .progress-track {
+        .core-dot {
+          width: 6px;
           height: 6px;
-          background: rgba(255, 255, 255, 0.05);
-          border-radius: 3px;
-          overflow: hidden;
-        }
-
-        .progress-bar {
-          height: 100%;
-          border-radius: 3px;
-        }
-
-        .progress-bar.native {
+          border-radius: 50%;
           background: var(--color-primary);
+          display: inline-block;
         }
 
-        .progress-bar.intermediate {
-          background: var(--color-secondary);
+        .skills-legend {
+          margin-top: 14px;
+          margin-bottom: 32px;
+          display: flex;
+          justify-content: flex-end;
         }
 
-        @media (max-width: 950px) {
-          .soft-languages-container {
+        .legend-item {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          font-family: var(--font-mono);
+          font-size: 12px;
+          color: var(--text-muted);
+        }
+
+        .work-and-lang-grid {
+          display: grid;
+          grid-template-columns: 1.35fr 0.65fr;
+          gap: 20px;
+          align-items: stretch;
+        }
+
+        .work-card,
+        .lang-card {
+          padding: 28px;
+        }
+
+        .subcard-title {
+          font-family: var(--font-mono);
+          font-size: 12.5px;
+          font-weight: 500;
+          color: var(--text-muted);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          margin-bottom: 20px;
+        }
+
+        .habits-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+        }
+
+        .habit-item h4 {
+          font-size: 15px;
+          font-weight: 600;
+          color: var(--text-primary);
+          margin-bottom: 4px;
+        }
+
+        .habit-item p {
+          font-size: 14px;
+          color: var(--text-secondary);
+          line-height: 1.55;
+        }
+
+        .lang-list {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .lang-row {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          padding-bottom: 16px;
+          border-bottom: 1px solid var(--border-color);
+        }
+
+        .lang-row:last-child {
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+
+        .lang-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .lang-name {
+          font-size: 15.5px;
+          font-weight: 600;
+          color: var(--text-primary);
+        }
+
+        .lang-badge {
+          font-size: 11.5px;
+          color: var(--color-primary);
+          background: var(--color-primary-transparent);
+          padding: 3px 9px;
+          border-radius: 99px;
+        }
+
+        .lang-badge.secondary {
+          color: var(--color-secondary);
+          background: var(--color-secondary-transparent);
+        }
+
+        .lang-note {
+          font-size: 13.5px;
+          color: var(--text-secondary);
+          line-height: 1.55;
+        }
+
+        @media (max-width: 860px) {
+          .tech-grid,
+          .work-and-lang-grid,
+          .habits-grid {
             grid-template-columns: 1fr;
-            gap: 24px;
           }
         }
       `}</style>
